@@ -14,6 +14,24 @@
 - 业界实际运用情况，比如哪些厂商、哪些产品在用
 - 模型的整体结构，尤其是有特色的部分
 
+内容
+- PRTR（Pose Recognition with Cascade Transformers）是第一个基于Transformer的人体姿态估计网络，核心架构基于DETR
+
+结论
+- We propose a regression-based human pose recognition method by building cascade Transformers, based on a general-purpose object detector, end-to-end object detection Transformer (DETR). Our method, named pose recognition Transformer (PRTR), enjoys the tokenized representation in Transformers with layers of selfattention to capture the joint spatial and appearance modeling for the keypoints.
+- Two types of cascade Transformers have been developed: 1). a two-stage one with the second Transformer taking image patches detected from the first Transformer, as shown in Figure 2; and 2). a sequential one using spatial Transformer network (STN) to create an end-to-end framework, shown in Figure 3.
+- We visualize the distribution of keypoint queries in various aspects to unfold the internal process of the Transformer for the gradual refinement of the detection.
+
+资源
+- 源码：https://github.com/mlpc-ucsd/PRTR
+- 论文：https://openaccess.thecvf.com/content/CVPR2021/html/Li_Pose_Recognition_With_Cascade_Transformers_CVPR_2021_paper.html
+
+Two-stage Transformers
+![model_two_stage](figures/model_two_stage.png)
+
+Sequential Transformers
+![model_sequential](figures/model_sequential.png)
+
 ### 模型优化的难点
 如果模型可以容易地跑在TensorRT上而且性能很好，就没有必要选它作为参赛题目并在这里长篇大论了。相信你选择了某个模型作为参赛题目必然有选择它的理由。  
 请介绍一下在模型在导出时、或用polygraphy/trtexec解析时、或在TensorRT运行时，会遇到什么问题。换句话说，针对这个模型，我们为什么需要额外的工程手段。
